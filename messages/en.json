@@ -1,0 +1,16 @@
+{
+  "Header": {
+    "title": "Large Screen Visualization Platform"
+  },
+  "Dashboard": {
+    "salesTrend": "Sales Trend",
+    "distribution": "Distribution",
+    "keyPerformance": "Key Performance",
+    "detailedStats": "Detailed Statistics",
+    "categoryAnalysis": "Category Analysis",
+    "growthRate": "Growth Rate"
+  },
+  "Charts": {
+    "dailyTraffic": "Daily Traffic"
+  }
+}

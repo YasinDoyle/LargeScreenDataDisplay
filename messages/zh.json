@@ -1,0 +1,16 @@
+{
+  "Header": {
+    "title": "大屏数据可视化平台"
+  },
+  "Dashboard": {
+    "salesTrend": "销售趋势",
+    "distribution": "数据分布",
+    "keyPerformance": "核心指标",
+    "detailedStats": "详细统计",
+    "categoryAnalysis": "类目分析",
+    "growthRate": "增长率"
+  },
+  "Charts": {
+    "dailyTraffic": "每日流量"
+  }
+}

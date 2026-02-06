@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@theme {
+  --color-scifi-bg: #050510;
+  --color-scifi-panel: rgba(16, 20, 60, 0.4);
+  --color-scifi-border: rgba(50, 80, 200, 0.3);
+  --color-scifi-text: #a0d0ff;
+  --color-scifi-highlight: #00f2ff;
+  --color-scifi-secondary: #7000ff;
+}
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 5, 5, 16;
+  --background-end-rgb: 0, 0, 0;
+}
+
+body {
+  color: #cceeff;
+  background: radial-gradient(circle at center, #0b1026 0%, #000000 100%);
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: "Orbitron", "Microsoft YaHei", sans-serif;
+}
+
+/* Sci-fi Panel Effect */
+.scifi-panel {
+  background: linear-gradient(
+    135deg,
+    rgba(6, 15, 40, 0.8) 0%,
+    rgba(6, 15, 40, 0.4) 100%
+  );
+  border: 1px solid rgba(0, 242, 255, 0.2);
+  box-shadow: 0 0 15px rgba(0, 242, 255, 0.05) inset;
+  position: relative;
+}
+
+.scifi-panel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #00f2ff;
+  border-left: 2px solid #00f2ff;
+}
+
+.scifi-panel::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  border-bottom: 2px solid #00f2ff;
+  border-right: 2px solid #00f2ff;
+}
+
+.scifi-text-gradient {
+  background: linear-gradient(to bottom, #ffffff, #00f2ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
