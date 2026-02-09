@@ -20,7 +20,10 @@ const commonChartStyle = {
   },
 };
 
-export const getLineChartOption = (title: string = "Daily Traffic") => {
+export const getLineChartOption = (
+  title: string = "Daily Traffic",
+  type: string = "line",
+) => {
   return {
     ...commonChartStyle,
     color: scifiColors,
@@ -48,22 +51,7 @@ export const getLineChartOption = (title: string = "Daily Traffic") => {
         smooth: true,
         lineStyle: {
           width: 3,
-          shadowColor: "rgba(0, 242, 255, 0.5)",
           shadowBlur: 10,
-        },
-        areaStyle: {
-          opacity: 0.2,
-          color: {
-            type: "linear",
-            x: 0,
-            y: 0,
-            x2: 0,
-            y2: 1,
-            colorStops: [
-              { offset: 0, color: "#00f2ff" },
-              { offset: 1, color: "transparent" },
-            ],
-          },
         },
       },
       {
@@ -72,22 +60,7 @@ export const getLineChartOption = (title: string = "Daily Traffic") => {
         smooth: true,
         lineStyle: {
           width: 3,
-          shadowColor: "rgba(112, 0, 255, 0.5)",
           shadowBlur: 10,
-        },
-        areaStyle: {
-          opacity: 0.2,
-          color: {
-            type: "linear",
-            x: 0,
-            y: 0,
-            x2: 0,
-            y2: 1,
-            colorStops: [
-              { offset: 0, color: "#7000ff" },
-              { offset: 1, color: "transparent" },
-            ],
-          },
         },
       },
     ],
