@@ -14,6 +14,8 @@
     "dailyTraffic": "每日流量",
     "salesByRegion": "各地区销售额",
     "userSource": "用户来源",
+    "incomeOfCountriesSince1950": "1950起各国收入",
+    "income": "收入",
     "days": {
       "mon": "周一",
       "tue": "周二",

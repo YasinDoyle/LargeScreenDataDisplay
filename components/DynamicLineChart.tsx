@@ -5,6 +5,8 @@ import * as echarts from "echarts";
 import { BaseChartProps } from "./BaseChart";
 import { commonChartStyle } from "@/utils/chartOptions";
 import { getTranslation } from "@/utils/translation";
+import rawData from "@/public/data/life-expectancy-table.json";
+import { Line } from "echarts/types/src/util/graphic.js";
 
 interface DataItem {
   name: string;
@@ -78,7 +80,6 @@ const getDynamicOption = (): echarts.EChartsOption => ({
 
 const DynamicLineChart: React.FC<BaseChartProps> = (props) => {
   const [option, setOption] = useState({ ...getDynamicOption() });
-  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -98,9 +99,106 @@ const DynamicLineChart: React.FC<BaseChartProps> = (props) => {
       style={{ width: "100%", height: "100%", ...props.style }}
       className={props.className}
       theme="dark"
-      showLoading={loading}
+      showLoading={props.loading}
     />
   );
 };
 
-export default DynamicLineChart;
+const getLineRaceOption = (): echarts.EChartsOption => {
+  const countries = [
+    "China",
+    "Japan",
+    "North Korea",
+    "United States",
+    "South Korea",
+    "India",
+    "Russia",
+  ];
+  const datasetWithFilters: echarts.DatasetComponentOption[] = [];
+  const seriesList: echarts.SeriesOption[] = [];
+  echarts.util.each(countries, function (country) {
+    var datasetId = "dataset_" + country;
+    datasetWithFilters.push({
+      id: datasetId,
+      fromDatasetId: "dataset_raw",
+      transform: {
+        type: "filter",
+        config: {
+          and: [
+            { dimension: "Year", gte: 1950 },
+            { dimension: "Country", "=": country },
+          ],
+        },
+      },
+    });
+    seriesList.push({
+      type: "line",
+      datasetId: datasetId,
+      showSymbol: false,
+      name: country,
+      endLabel: {
+        show: true,
+        formatter: function (params: any) {
+          return params.value[3] + ": " + params.value[0];
+        },
+      },
+      labelLayout: {
+        moveOverlap: "shiftY",
+      },
+      emphasis: {
+        focus: "series",
+      },
+      encode: {
+        x: "Year",
+        y: "Income",
+        label: ["Country", "Income"],
+        itemName: "Year",
+        tooltip: ["Income"],
+      },
+    });
+  });
+  return {
+    ...commonChartStyle,
+    animationDuration: 10000,
+    dataset: [
+      {
+        id: "dataset_raw",
+        source: rawData,
+      },
+      ...datasetWithFilters,
+    ],
+    title: {
+      text: getTranslation("Charts.incomeOfCountriesSince1950"),
+    },
+    tooltip: {
+      order: "valueDesc",
+      trigger: "axis",
+    },
+    xAxis: {
+      type: "category",
+      nameLocation: "middle",
+    },
+    yAxis: {
+      name: getTranslation("Charts.income"),
+    },
+    grid: {
+      right: 140,
+    },
+    series: seriesList,
+  };
+};
+
+const LineRaceChart: React.FC<BaseChartProps> = (props) => {
+  return (
+    <ReactECharts
+      echarts={echarts}
+      option={getLineRaceOption()}
+      style={{ width: "100%", height: "100%", ...props.style }}
+      className={props.className}
+      theme="dark"
+      showLoading={props.loading}
+    />
+  );
+};
+
+export { LineRaceChart, DynamicLineChart };

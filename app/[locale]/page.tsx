@@ -4,7 +4,7 @@ import ScreenContainer from "../../components/ScreenContainer";
 import Header from "../../components/Header";
 import BaseChart from "../../components/BaseChart";
 import MapChart from "../../components/MapChart";
-import DynamicLineChart from "@/components/DynamicLineChart";
+import { DynamicLineChart, LineRaceChart } from "@/components/DynamicLineChart";
 import {
   getBarChartOption,
   getLineChartOption,
@@ -72,7 +72,7 @@ export default function Home() {
               </div>
               <div className="flex-1 scifi-panel rounded-lg p-1">
                 <div className="h-full w-full bg-blue-900/10 p-3">
-                  <BaseChart option={getLineChartOption(t("growthRate"))} />
+                  <LineRaceChart option={getLineChartOption(t("growthRate"))} />
                 </div>
               </div>
             </div>
