@@ -11,6 +11,44 @@
     "growthRate": "增长率"
   },
   "Charts": {
-    "dailyTraffic": "每日流量"
+    "dailyTraffic": "每日流量",
+    "salesByRegion": "各地区销售额",
+    "userSource": "用户来源",
+    "days": {
+      "mon": "周一",
+      "tue": "周二",
+      "wed": "周三",
+      "thu": "周四",
+      "fri": "周五",
+      "sat": "周六",
+      "sun": "周日"
+    },
+    "regions": {
+      "north": "北部",
+      "south": "南部",
+      "east": "东部",
+      "west": "西部",
+      "central": "中部",
+      "overseas": "海外"
+    },
+    "series": {
+      "direct": "直接",
+      "accessFrom": "访问来源"
+    },
+    "sources": {
+      "searchEngine": "搜索引擎",
+      "directAccess": "直接访问",
+      "email": "邮件",
+      "unionAds": "联盟广告",
+      "videoAds": "视频广告"
+    },
+    "cities": {
+      "beijing": "北京",
+      "shanghai": "上海",
+      "guangzhou": "广州",
+      "chengdu": "成都",
+      "wuhan": "武汉",
+      "xian": "西安"
+    }
   }
 }

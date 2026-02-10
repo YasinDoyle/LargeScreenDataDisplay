@@ -11,6 +11,44 @@
     "growthRate": "Growth Rate"
   },
   "Charts": {
-    "dailyTraffic": "Daily Traffic"
+    "dailyTraffic": "Daily Traffic",
+    "salesByRegion": "Sales by Region",
+    "userSource": "User Source",
+    "days": {
+      "mon": "Mon",
+      "tue": "Tue",
+      "wed": "Wed",
+      "thu": "Thu",
+      "fri": "Fri",
+      "sat": "Sat",
+      "sun": "Sun"
+    },
+    "regions": {
+      "north": "North",
+      "south": "South",
+      "east": "East",
+      "west": "West",
+      "central": "Central",
+      "overseas": "Overseas"
+    },
+    "series": {
+      "direct": "Direct",
+      "accessFrom": "Access From"
+    },
+    "sources": {
+      "searchEngine": "Search Engine",
+      "directAccess": "Direct",
+      "email": "Email",
+      "unionAds": "Union Ads",
+      "videoAds": "Video Ads"
+    },
+    "cities": {
+      "beijing": "Beijing",
+      "shanghai": "Shanghai",
+      "guangzhou": "Guangzhou",
+      "chengdu": "Chengdu",
+      "wuhan": "Wuhan",
+      "xian": "Xi'an"
+    }
   }
 }

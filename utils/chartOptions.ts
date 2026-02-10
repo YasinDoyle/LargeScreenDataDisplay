@@ -1,4 +1,5 @@
 const scifiColors = ["#00f2ff", "#7000ff", "#00ff9d", "#ff0055", "#efff00"];
+import { getTranslation } from "./translation";
 
 const commonChartStyle = {
   backgroundColor: "transparent",
@@ -21,21 +22,32 @@ const commonChartStyle = {
 };
 
 export const getLineChartOption = (
-  title: string = "Daily Traffic",
+  title?: string,
   type: string = "line",
+  locale: "en" | "zh" = "zh",
 ) => {
+  const t = (key: string) => getTranslation(locale, key);
+
   return {
     ...commonChartStyle,
     color: scifiColors,
     title: {
-      text: title,
+      text: title || t("Charts.dailyTraffic"),
       left: "center",
       ...commonChartStyle.title,
     },
     tooltip: commonChartStyle.tooltip,
     xAxis: {
       type: "category",
-      data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+      data: [
+        t("Charts.days.mon"),
+        t("Charts.days.tue"),
+        t("Charts.days.wed"),
+        t("Charts.days.thu"),
+        t("Charts.days.fri"),
+        t("Charts.days.sat"),
+        t("Charts.days.sun"),
+      ],
       axisLine: { lineStyle: { color: "#3250c8" } },
       axisLabel: { color: "#a0d0ff" },
     },
@@ -73,12 +85,17 @@ export const getLineChartOption = (
   };
 };
 
-export const getBarChartOption = (title: string = "Sales by Region") => {
+export const getBarChartOption = (
+  title?: string,
+  locale: "en" | "zh" = "zh",
+) => {
+  const t = (key: string) => getTranslation(locale, key);
+
   return {
     ...commonChartStyle,
     color: scifiColors,
     title: {
-      text: title,
+      text: title || t("Charts.salesByRegion"),
       left: "center",
       ...commonChartStyle.title,
     },
@@ -98,7 +115,14 @@ export const getBarChartOption = (title: string = "Sales by Region") => {
     xAxis: [
       {
         type: "category",
-        data: ["North", "South", "East", "West", "Central", "Overseas"],
+        data: [
+          t("Charts.regions.north"),
+          t("Charts.regions.south"),
+          t("Charts.regions.east"),
+          t("Charts.regions.west"),
+          t("Charts.regions.central"),
+          t("Charts.regions.overseas"),
+        ],
         axisTick: { alignWithLabel: true },
         axisLine: { lineStyle: { color: "#3250c8" } },
         axisLabel: { color: "#a0d0ff" },
@@ -113,7 +137,7 @@ export const getBarChartOption = (title: string = "Sales by Region") => {
     ],
     series: [
       {
-        name: "Direct",
+        name: t("Charts.series.direct"),
         type: "bar",
         barWidth: "40%",
         data: [10, 52, 200, 334, 390, 330],
@@ -136,12 +160,17 @@ export const getBarChartOption = (title: string = "Sales by Region") => {
   };
 };
 
-export const getPieChartOption = (title: string = "User Source") => {
+export const getPieChartOption = (
+  title?: string,
+  locale: "en" | "zh" = "zh",
+) => {
+  const t = (key: string) => getTranslation(locale, key);
+
   return {
     ...commonChartStyle,
     color: scifiColors,
     title: {
-      text: title,
+      text: title || t("Charts.userSource"),
       left: "center",
       ...commonChartStyle.title,
     },
@@ -156,15 +185,15 @@ export const getPieChartOption = (title: string = "User Source") => {
     },
     series: [
       {
-        name: "Access From",
+        name: t("Charts.series.accessFrom"),
         type: "pie",
         radius: "50%",
         data: [
-          { value: 1048, name: "Search Engine" },
-          { value: 735, name: "Direct" },
-          { value: 580, name: "Email" },
-          { value: 484, name: "Union Ads" },
-          { value: 300, name: "Video Ads" },
+          { value: 1048, name: t("Charts.sources.searchEngine") },
+          { value: 735, name: t("Charts.sources.directAccess") },
+          { value: 580, name: t("Charts.sources.email") },
+          { value: 484, name: t("Charts.sources.unionAds") },
+          { value: 300, name: t("Charts.sources.videoAds") },
         ],
         emphasis: {
           itemStyle: {
@@ -178,7 +207,11 @@ export const getPieChartOption = (title: string = "User Source") => {
   };
 };
 
-export const getChinaMapOption = (data: any[] = []) => {
+export const getChinaMapOption = (
+  data: any[] = [],
+  locale: "en" | "zh" = "zh",
+) => {
+  const t = (key: string) => getTranslation(locale, key);
   // Top 5 busiest routes simulation
   const routes = [
     {
@@ -308,12 +341,27 @@ export const getChinaMapOption = (data: any[] = []) => {
           color: "#00f2ff",
         },
         data: [
-          { name: "Beijing", value: [116.405285, 39.904989, 100] },
-          { name: "Shanghai", value: [121.472644, 31.231706, 90] },
-          { name: "Guangzhou", value: [113.280637, 23.125178, 80] },
-          { name: "Chengdu", value: [104.065735, 30.659462, 70] },
-          { name: "Wuhan", value: [114.305393, 30.593099, 60] },
-          { name: "Xi'an", value: [108.948024, 34.263161, 50] },
+          {
+            name: t("Charts.cities.beijing"),
+            value: [116.405285, 39.904989, 100],
+          },
+          {
+            name: t("Charts.cities.shanghai"),
+            value: [121.472644, 31.231706, 90],
+          },
+          {
+            name: t("Charts.cities.guangzhou"),
+            value: [113.280637, 23.125178, 80],
+          },
+          {
+            name: t("Charts.cities.chengdu"),
+            value: [104.065735, 30.659462, 70],
+          },
+          {
+            name: t("Charts.cities.wuhan"),
+            value: [114.305393, 30.593099, 60],
+          },
+          { name: t("Charts.cities.xian"), value: [108.948024, 34.263161, 50] },
         ],
       },
     ],
