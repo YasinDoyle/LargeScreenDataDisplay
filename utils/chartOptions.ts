@@ -1,7 +1,7 @@
 const scifiColors = ["#00f2ff", "#7000ff", "#00ff9d", "#ff0055", "#efff00"];
 import { getTranslation } from "./translation";
 
-const commonChartStyle = {
+export const commonChartStyle = {
   backgroundColor: "transparent",
   textStyle: {
     color: "#a0d0ff",
@@ -26,7 +26,7 @@ export const getLineChartOption = (
   type: string = "line",
   locale: "en" | "zh" = "zh",
 ) => {
-  const t = (key: string) => getTranslation(locale, key);
+  const t = (key: string) => getTranslation(key, locale);
 
   return {
     ...commonChartStyle,
@@ -89,7 +89,7 @@ export const getBarChartOption = (
   title?: string,
   locale: "en" | "zh" = "zh",
 ) => {
-  const t = (key: string) => getTranslation(locale, key);
+  const t = (key: string) => getTranslation(key, locale);
 
   return {
     ...commonChartStyle,
@@ -164,7 +164,7 @@ export const getPieChartOption = (
   title?: string,
   locale: "en" | "zh" = "zh",
 ) => {
-  const t = (key: string) => getTranslation(locale, key);
+  const t = (key: string) => getTranslation(key, locale);
 
   return {
     ...commonChartStyle,
@@ -211,7 +211,7 @@ export const getChinaMapOption = (
   data: any[] = [],
   locale: "en" | "zh" = "zh",
 ) => {
-  const t = (key: string) => getTranslation(locale, key);
+  const t = (key: string) => getTranslation(key, locale);
   // Top 5 busiest routes simulation
   const routes = [
     {

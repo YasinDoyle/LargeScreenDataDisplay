@@ -4,7 +4,7 @@ import React from "react";
 import ReactECharts from "echarts-for-react";
 import * as echarts from "echarts";
 
-interface BaseChartProps {
+export interface BaseChartProps {
   option: any;
   className?: string;
   style?: React.CSSProperties;

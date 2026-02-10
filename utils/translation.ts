@@ -24,8 +24,8 @@ const messages = {
  * @returns 翻译后的文本
  */
 export function getTranslation(
-  locale: "en" | "zh" = "zh",
   key: string,
+  locale: "en" | "zh" = "zh",
 ): string {
   const keys = key.split(".");
   let value: any = messages[locale];
@@ -43,8 +43,8 @@ export function getTranslation(
  * @returns 翻译函数
  */
 export function createTranslator(locale: "en" | "zh" = "zh") {
-  return (key: string) => getTranslation(locale, key);
+  return (key: string) => getTranslation(key, locale);
 }
 
 // 默认中文翻译函数
-export const t = (key: string) => getTranslation("zh", key);
+export const t = (key: string) => getTranslation(key, "zh");
