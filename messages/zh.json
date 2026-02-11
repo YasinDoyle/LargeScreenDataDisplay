@@ -20,6 +20,8 @@
     "population": "人口",
     "lifeExpectancy": "预期寿命",
     "lifeExpectancySince1900": "1900~2015各国预期寿命",
+    "expenses": "支出",
+    "comparisonOfExpensesAndIncome": "支出与收入对比",
     "days": {
       "mon": "周一",
       "tue": "周二",

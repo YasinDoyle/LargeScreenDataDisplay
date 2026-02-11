@@ -20,6 +20,9 @@
     "population": "Population",
     "lifeExpectancy": "Life Expectancy",
     "lifeExpectancySince1900": "Life Expectancy Between 1900 and 2015",
+    "expenses": "Expenses",
+    "comparisonOfExpensesAndIncome": "Comparison of expenses and income",
+
     "days": {
       "mon": "Mon",
       "tue": "Tue",

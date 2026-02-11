@@ -5,7 +5,10 @@ import Header from "../../components/Header";
 import BaseChart from "../../components/BaseChart";
 import MapChart from "../../components/MapChart";
 import { DynamicLineChart, LineRaceChart } from "@/components/DynamicLineChart";
-import { DynamicBarChart } from "@/components/DynamicBarChart";
+import {
+  DynamicBarChart,
+  WaterfallBarChart,
+} from "@/components/DynamicBarChart";
 import {
   getBarChartOption,
   getLineChartOption,
@@ -51,7 +54,9 @@ export default function Home() {
               <div className="flex-1 grid grid-cols-2 gap-6">
                 <div className="scifi-panel rounded-lg p-1">
                   <div className="h-full w-full bg-blue-900/10 p-3">
-                    <BaseChart option={getBarChartOption(t("detailedStats"))} />
+                    <WaterfallBarChart
+                      option={getBarChartOption(t("detailedStats"))}
+                    />
                   </div>
                 </div>
                 <div className="scifi-panel rounded-lg p-1">

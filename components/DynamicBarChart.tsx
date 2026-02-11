@@ -149,6 +149,97 @@ const getDynamicBarOption = (
   };
 };
 
+const getWaterfallBarOption = (): echarts.EChartsOption => {
+  return {
+    ...commonChartStyle,
+    title: {
+      text: getTranslation("Charts.comparisonOfExpensesAndIncome"),
+    },
+    tooltip: {
+      trigger: "axis",
+      axisPointer: {
+        type: "shadow",
+      },
+      formatter: function (params: any) {
+        let tar;
+        if (params[1] && params[1].value !== "-") {
+          tar = params[1];
+        } else {
+          tar = params[2];
+        }
+        return tar && tar.name + "<br/>" + tar.seriesName + " : " + tar.value;
+      },
+    },
+    legend: {
+      data: [
+        getTranslation("Charts.expenses"),
+        getTranslation("Charts.income"),
+      ],
+      orient: "vertical",
+      right: 0,
+      top: 10,
+    },
+    grid: {
+      left: "3%",
+      right: "4%",
+      bottom: "3%",
+      containLabel: true,
+    },
+    xAxis: {
+      type: "category",
+      data: (function () {
+        let list = [];
+        for (let i = 1; i <= 11; i++) {
+          list.push("Nov " + i);
+        }
+        return list;
+      })(),
+    },
+    yAxis: {
+      type: "value",
+    },
+    series: [
+      {
+        name: "Placeholder",
+        type: "bar",
+        stack: "Total",
+        silent: true,
+        itemStyle: {
+          borderColor: "transparent",
+          color: "transparent",
+        },
+        emphasis: {
+          itemStyle: {
+            borderColor: "transparent",
+            color: "transparent",
+          },
+        },
+        data: [0, 900, 1245, 1530, 1376, 1376, 1511, 1689, 1856, 1495, 1292],
+      },
+      {
+        name: getTranslation("Charts.income"),
+        type: "bar",
+        stack: "Total",
+        label: {
+          show: true,
+          position: "top",
+        },
+        data: [900, 345, 393, "-", "-", 135, 178, 286, "-", "-", "-"],
+      },
+      {
+        name: getTranslation("Charts.expenses"),
+        type: "bar",
+        stack: "Total",
+        label: {
+          show: true,
+          position: "bottom",
+        },
+        data: ["-", "-", "-", 108, 154, "-", "-", "-", 119, 361, 203],
+      },
+    ],
+  };
+};
+
 const DynamicBarChart: React.FC<BaseChartProps> = (props) => {
   const [option, setOption] = useState<echarts.EChartsOption>(
     getDynamicBarOption(data.slice(1), startYear),
@@ -190,4 +281,20 @@ const DynamicBarChart: React.FC<BaseChartProps> = (props) => {
   );
 };
 
-export { DynamicBarChart };
+const WaterfallBarChart: React.FC<BaseChartProps> = (props) => {
+  const [option, setOption] = useState<echarts.EChartsOption>(
+    getWaterfallBarOption(),
+  );
+  return (
+    <ReactECharts
+      echarts={echarts}
+      option={option}
+      style={{ width: "100%", height: "100%", ...props.style }}
+      className={props.className}
+      theme="dark"
+      showLoading={props.loading}
+    />
+  );
+};
+
+export { DynamicBarChart, WaterfallBarChart };
