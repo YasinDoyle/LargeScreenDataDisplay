@@ -14,8 +14,12 @@
     "dailyTraffic": "Daily Traffic",
     "salesByRegion": "Sales by Region",
     "userSource": "User Source",
-    "incomeOfCountriesSince1950": "Income of Countries Since 1950",
+    "incomeOfCountriesSince1950": "Income of Countries Between 1950 and 2015",
     "income": "Income",
+    "populationChangeSince1900": "Population Change Since 1900",
+    "population": "Population",
+    "lifeExpectancy": "Life Expectancy",
+    "lifeExpectancySince1900": "Life Expectancy Between 1900 and 2015",
     "days": {
       "mon": "Mon",
       "tue": "Tue",

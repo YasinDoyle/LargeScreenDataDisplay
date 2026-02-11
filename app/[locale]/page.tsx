@@ -5,6 +5,7 @@ import Header from "../../components/Header";
 import BaseChart from "../../components/BaseChart";
 import MapChart from "../../components/MapChart";
 import { DynamicLineChart, LineRaceChart } from "@/components/DynamicLineChart";
+import { DynamicBarChart } from "@/components/DynamicBarChart";
 import {
   getBarChartOption,
   getLineChartOption,
@@ -65,7 +66,7 @@ export default function Home() {
             <div className="col-span-3 flex flex-col gap-6">
               <div className="flex-1 scifi-panel rounded-lg p-1">
                 <div className="h-full w-full bg-blue-900/10 p-3">
-                  <BaseChart
+                  <DynamicBarChart
                     option={getBarChartOption(t("categoryAnalysis"))}
                   />
                 </div>

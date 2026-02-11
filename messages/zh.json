@@ -14,8 +14,12 @@
     "dailyTraffic": "每日流量",
     "salesByRegion": "各地区销售额",
     "userSource": "用户来源",
-    "incomeOfCountriesSince1950": "1950起各国收入",
+    "incomeOfCountriesSince1950": "1950~2015各国收入",
     "income": "收入",
+    "populationChangeSince1900": "1900起人口变化",
+    "population": "人口",
+    "lifeExpectancy": "预期寿命",
+    "lifeExpectancySince1900": "1900~2015各国预期寿命",
     "days": {
       "mon": "周一",
       "tue": "周二",
