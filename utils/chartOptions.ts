@@ -220,6 +220,8 @@ export const getChinaMapOption = (
   locale: "en" | "zh" = "zh",
 ) => {
   const t = (key: string) => getTranslation(key, locale);
+  // 泉州坐标
+  const quanzhouCoords = [118.675676, 24.874132];
   // Top 5 busiest routes simulation
   const routes = [
     {
@@ -252,6 +254,26 @@ export const getChinaMapOption = (
         [113.280637, 23.125178],
       ],
     }, // Xi'an -> Guangzhou
+    // 1. 往北：北京
+    { coords: [quanzhouCoords, [116.405285, 39.904989]] },
+    // 2. 往东北：哈尔滨
+    { coords: [quanzhouCoords, [126.642464, 45.756967]] },
+    // 3. 往东：上海
+    { coords: [quanzhouCoords, [121.472644, 31.231706]] },
+    // 4. 往西北远端：乌鲁木齐
+    { coords: [quanzhouCoords, [87.617733, 43.792818]] },
+    // 5. 往西北：西安
+    { coords: [quanzhouCoords, [108.948024, 34.263161]] },
+    // 6. 往西：拉萨
+    { coords: [quanzhouCoords, [91.132212, 29.660361]] },
+    // 7. 往西南：成都
+    { coords: [quanzhouCoords, [104.065735, 30.659462]] },
+    // 8. 往西南：昆明
+    { coords: [quanzhouCoords, [102.712251, 25.040609]] },
+    // 9. 往南：三亚
+    { coords: [quanzhouCoords, [109.508268, 18.247872]] },
+    // 10. 往中：武汉
+    { coords: [quanzhouCoords, [114.305393, 30.593099]] },
   ];
 
   return {
@@ -325,7 +347,7 @@ export const getChinaMapOption = (
         lineStyle: {
           color: "#a6c84c",
           width: 1,
-          opacity: 0.6,
+          opacity: 0.9,
           curveness: 0.2,
         },
         data: routes,
@@ -368,6 +390,30 @@ export const getChinaMapOption = (
           {
             name: t("Charts.cities.wuhan"),
             value: [114.305393, 30.593099, 60],
+          },
+          {
+            name: t("Charts.cities.quanzhou"),
+            value: [...quanzhouCoords, 90],
+          },
+          {
+            name: t("Charts.cities.harbin"),
+            value: [126.642464, 45.756967, 50],
+          },
+          {
+            name: t("Charts.cities.lasa"),
+            value: [91.117212, 29.647625, 50],
+          },
+          {
+            name: t("Charts.cities.kunming"),
+            value: [102.712251, 25.040609, 50],
+          },
+          {
+            name: t("Charts.cities.sanya"),
+            value: [109.508268, 18.247872, 50],
+          },
+          {
+            name: t("Charts.cities.wulumuqi"),
+            value: [87.617733, 43.792818, 50],
           },
           { name: t("Charts.cities.xian"), value: [108.948024, 34.263161, 50] },
         ],
