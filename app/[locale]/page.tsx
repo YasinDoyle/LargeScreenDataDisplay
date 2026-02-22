@@ -9,6 +9,7 @@ import {
   DynamicBarChart,
   WaterfallBarChart,
 } from "@/components/DynamicBarChart";
+import { CustomBarChart } from "@/components/CustomBarChart";
 import {
   getBarChartOption,
   getLineChartOption,
@@ -61,7 +62,7 @@ export default function Home() {
                 </div>
                 <div className="scifi-panel rounded-lg p-1">
                   <div className="h-full w-full bg-blue-900/10 p-3">
-                    <BaseChart option={getGaugeOption()} />
+                    <CustomBarChart option={getGaugeOption()} />
                   </div>
                 </div>
               </div>

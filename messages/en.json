@@ -22,7 +22,8 @@
     "lifeExpectancySince1900": "Life Expectancy Between 1900 and 2015",
     "expenses": "Expenses",
     "comparisonOfExpensesAndIncome": "Comparison of expenses and income",
-
+    "category": "Category",
+    "trend": "Trend",
     "days": {
       "mon": "Mon",
       "tue": "Tue",
