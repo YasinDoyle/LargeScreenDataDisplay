@@ -179,21 +179,29 @@ export const getPieChartOption = (
       ...commonChartStyle.tooltip,
     },
     legend: {
-      orient: "vertical",
-      left: "left",
-      textStyle: { color: "#a0d0ff" },
+      top: "bottom",
     },
     series: [
       {
         name: t("Charts.series.accessFrom"),
         type: "pie",
-        radius: "50%",
+        radius: [30, 120],
+        center: ["50%", "50%"],
+        roseType: "area",
+        itemStyle: {
+          borderRadius: 8,
+        },
+        labelLine: {
+          show: true,
+          length: 10,
+          length2: 5,
+        },
         data: [
-          { value: 1048, name: t("Charts.sources.searchEngine") },
-          { value: 735, name: t("Charts.sources.directAccess") },
-          { value: 580, name: t("Charts.sources.email") },
-          { value: 484, name: t("Charts.sources.unionAds") },
-          { value: 300, name: t("Charts.sources.videoAds") },
+          { value: 40, name: t("Charts.sources.searchEngine") },
+          { value: 36, name: t("Charts.sources.directAccess") },
+          { value: 32, name: t("Charts.sources.email") },
+          { value: 28, name: t("Charts.sources.unionAds") },
+          { value: 24, name: t("Charts.sources.videoAds") },
         ],
         emphasis: {
           itemStyle: {
